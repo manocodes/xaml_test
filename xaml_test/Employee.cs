@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,6 +50,32 @@ namespace xaml_test
         public enum Party
         {
             Indepentent, Federalist, DemocratRepublican
+        }
+
+        private Party affiliation;
+        public Party Affiliation
+        {
+            get { return affiliation; }
+            set { affiliation = value; RaisePropertyChanged(); }
+        }
+
+        public static ObservableCollection<Employee> GetEmployees()
+        {
+            var employees = new ObservableCollection<Employee>();
+
+            employees.Add(new Employee()
+            {Name = "Ali", Title = "Minister", WasReelcted = false, Affiliation = Party.DemocratRepublican});
+
+            employees.Add(new Employee()
+            { Name = "Mahinda", Title = "PriMinister", WasReelcted = true, Affiliation = Party.Federalist});
+
+            employees.Add(new Employee()
+            { Name = "Sirisena", Title = "Gobbaya", WasReelcted = false, Affiliation = Party.Indepentent });
+
+            employees.Add(new Employee()
+            { Name = "Ranil", Title = "Gobbaya II", WasReelcted = true, Affiliation = Party.Federalist });
+
+            return employees;
         }
 
     }

@@ -29,7 +29,7 @@ namespace xaml_test
         private void btn_click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("hellp world");
-               }
+        }
 
 
     }
