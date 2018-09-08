@@ -47,11 +47,6 @@ namespace xaml_test
             get { return wasReelcted; }
         }
 
-        public enum Party
-        {
-            Indepentent, Federalist, DemocratRepublican
-        }
-
         private Party affiliation;
         public Party Affiliation
         {
