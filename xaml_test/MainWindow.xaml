@@ -6,7 +6,18 @@
         xmlns:local="clr-namespace:xaml_test"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid RenderTransformOrigin="0.5,0.5">
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-0.45"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
+        <Button  Name="btn"  Content="Hello world!" Margin="346,200,326,175" Background="#FFDDDDDD" />
+
+
+
     </Grid>
 </Window>
