@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace xaml_test
 {
@@ -24,6 +25,11 @@ namespace xaml_test
         {
             InitializeComponent();
             btn.Click += btn_click;
+
+            ObservableCollection<Employee> empData = Employee.GetEmployees();
+            dataGrid.ItemsSource = empData;
+
+            listView.ItemsSource = empData;
         }
 
         private void btn_click(object sender, RoutedEventArgs e)

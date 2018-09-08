@@ -6,11 +6,34 @@
         xmlns:local="clr-namespace:xaml_test"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-        
-        
-        <Button  Name="btn"  Content="Hello world!" Margin="627,337,45,38" Background="#FFDDDDDD" />
+    <Grid Margin="0,193,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="31*"/>
+            <ColumnDefinition Width="57*"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid Name="dataGrid" AlternatingRowBackground="AntiqueWhite" AlternationCount="1" AutoGenerateColumns="False" Grid.ColumnSpan="2" Margin="0,-178,372,232">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}" />
+                <DataGridCheckBoxColumn Header="Reelcted?" Binding="{Binding WasReelcted}" />
+                <DataGridTextColumn Header="Affiliation" Binding="{Binding Affiliation}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <ListView Name="listView" Margin="165,-178,45,232" Grid.Column="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="100" />
+                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="100" />
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+        <Button  Name="btn"  Content="Hello world!" Margin="347.765,337,45,-111" Background="#FFDDDDDD" Grid.Column="1" />
 
 
 
