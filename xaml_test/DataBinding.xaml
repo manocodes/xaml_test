@@ -6,9 +6,5 @@
         xmlns:local="clr-namespace:xaml_test"
         mc:Ignorable="d"
         Title="DataBinding" Height="450" Width="800">
-    <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Height="37.769" Margin="415.784,159.691,0,0" VerticalAlignment="Top" Width="140.288"/>
-        <ScrollBar HorizontalAlignment="Left" Height="46.403" Margin="58.59,283.791,0,0" VerticalAlignment="Top" Width="563.309"/>
-
-    </Grid>
+    <Grid/>
 </Window>
