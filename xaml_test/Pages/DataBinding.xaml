@@ -6,5 +6,26 @@
         xmlns:local="clr-namespace:xaml_test"
         mc:Ignorable="d"
         Title="DataBinding" Height="450" Width="800">
-    <Grid/>
+    
+    <Grid>
+        <StackPanel Name="Display">
+            <StackPanel Orientation="Horizontal" Margin="50,50,0,0">
+                <TextBlock Text="Name: "/>
+                <TextBlock Text="{Binding Name}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="50,0,50,0">
+                <TextBlock Text="Title: "/>
+                <TextBlock Text="{Binding Title}"/>
+            </StackPanel>
+
+            <StackPanel>
+                <TextBlock Name="names"  TextWrapping="Wrap"/>
+            </StackPanel>
+        </StackPanel>
+
+        <Button Content="GetNew" Click="onClick" Margin="176,0,491,347" RenderTransformOrigin="-0.973,-2.716"></Button>
+        
+    </Grid>
+
 </Window>

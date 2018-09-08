@@ -73,5 +73,15 @@ namespace xaml_test
             return employees;
         }
 
+		public static Employee GetEmployee()
+		{
+			ObservableCollection<Employee> employees = GetEmployees();
+
+			Random r = new Random();
+			int i = r.Next(0, (employees.Count));
+
+			return employees[i];
+		}
+
     }
 }

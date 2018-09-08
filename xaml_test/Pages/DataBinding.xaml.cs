@@ -14,14 +14,34 @@ using System.Windows.Shapes;
 
 namespace xaml_test
 {
-    /// <summary>
-    /// Interaction logic for Window1.xaml
-    /// </summary>
-    public partial class DataBinding : Window
+	/// <summary>
+	/// Interaction logic for Window1.xaml
+	/// </summary>
+	/// 
+
+	public partial class DataBinding : Window
     {
-        public DataBinding()
-        {
-            InitializeComponent();
-        }
-    }
+
+		Dictionary<string, int> dict = new Dictionary<string, int>();
+
+		public DataBinding()
+		{
+			InitializeComponent();
+			Employee emp = getEmployee();
+			names.Text = emp.Name;
+		}
+
+		public void onClick(object sender, RoutedEventArgs e)
+		{
+			Employee emp = getEmployee();
+			names.Text = names.Text + ", " + emp.Name;
+		}
+
+		private Employee getEmployee()
+		{
+			Employee emp = Employee.GetEmployee();
+			DataContext = emp;			
+			return emp;
+		}
+	}
 }
