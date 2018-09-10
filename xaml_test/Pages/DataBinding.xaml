@@ -19,9 +19,17 @@
                 <TextBlock Text="{Binding Title}"/>
             </StackPanel>
 
+            <DataGrid Name="empCountsUI" Height="218" AutoGenerateColumns="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding empCount.Name}" />
+                    <DataGridTextColumn Header="Title" Binding="{Binding empCount.eCount}" />
+                </DataGrid.Columns>
+            </DataGrid>
+
             <StackPanel>
                 <TextBlock Name="names"  TextWrapping="Wrap"/>
             </StackPanel>
+
         </StackPanel>
 
         <Button Content="GetNew" Click="onClick" Margin="176,0,491,347" RenderTransformOrigin="-0.973,-2.716"></Button>

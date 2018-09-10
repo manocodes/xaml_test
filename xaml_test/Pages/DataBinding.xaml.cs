@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Web;
+using Newtonsoft.Json.Serialization;
 
 namespace xaml_test
 {
@@ -23,18 +15,63 @@ namespace xaml_test
     {
 
 		Dictionary<string, int> dict = new Dictionary<string, int>();
+		public class empCount
+		{
+			public string Name;
+			public int eCount;
+		}
+
+		public ObservableCollection<empCount> empCounts = new ObservableCollection<empCount>();
 
 		public DataBinding()
 		{
 			InitializeComponent();
 			Employee emp = getEmployee();
 			names.Text = emp.Name;
+
+			updateEmpCount(emp);
+
+		}
+
+		private void updateEmpCount(Employee emp)
+		{
+			bool found = false;
+			for (int icount = 0; icount < empCounts.Count; icount++)
+			{
+				if (emp.Name == empCounts[icount].Name)
+				{
+					empCounts[icount].eCount = empCounts[icount].eCount + 1;
+
+
+					found = true;
+				}
+			}
+
+			if (found == false)
+			{
+				empCount test = new empCount();
+				test.Name = emp.Name;
+				test.eCount = 1;
+
+				empCounts.Add(test);
+			}
+
+			empCountsUI.DataContext = empCounts;
+
+			var jsonstring = Newtonsoft.Json.JsonConvert.SerializeObject(empCounts);
+
+			MessageBox.Show(jsonstring);
+
 		}
 
 		public void onClick(object sender, RoutedEventArgs e)
 		{
 			Employee emp = getEmployee();
 			names.Text = names.Text + ", " + emp.Name;
+
+
+			updateEmpCount(emp);
+
 		}
 
 		private Employee getEmployee()
@@ -45,3 +82,7 @@ namespace xaml_test
 		}
 	}
 }
+
+
+
+

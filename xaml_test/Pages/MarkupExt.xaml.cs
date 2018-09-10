@@ -17,9 +17,9 @@ namespace xaml_test.Pages
 	/// <summary>
 	/// Interaction logic for Window1.xaml
 	/// </summary>
-	public partial class Window1 : Window
+	public partial class MarkupExt : Window
 	{
-		public Window1()
+		public MarkupExt()
 		{
 			InitializeComponent();
 		}
